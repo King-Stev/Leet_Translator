@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Leet_Translator.Models.Translations>
+
+<h2>Translation Data</h2>
+
+<table id="translationTable" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Original Text</th>
+            <th>Translated Text</th>
+            <th>Translation Type</th>
+            <th>Created On</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.OrginalText</td>
+                    <td>@item.TranslatedText</td>
+                    <td>@item.TranslatedTo</td>
+                    <td>@item.createdAt.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            console.log("Document ready function executed.");
+            $('#translationTable').DataTable();
+        });
+    </script>
+}
+
+
